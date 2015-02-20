@@ -11,8 +11,7 @@ if(!file.exists("./UCI HAR Dataset")){
 
 #X_train(test) has 561 variable, which are the "features".  Need mean and stdev columns only from that.
 #y_train(test) are the labels of the activities (need to use the real names)
-#  maybe need to colapse these down also?
-#subject_train(test) are the people in the study (aparently unused for this excercise, but good to have for analysis)
+#subject_train(test) are the people in the study
 X_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
 y_train <- read.table("./UCI HAR Dataset/train/y_train.txt")
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt") 

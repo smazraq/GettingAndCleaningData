@@ -1,37 +1,6 @@
 Getting and Cleaning Data ReadMe
 ========================================================
 
-Data for this excercise was derived entirely from:
-==================================================================
-Human Activity Recognition Using Smartphones Dataset
-Version 1.0
-==================================================================
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Universit‡ degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
-==================================================================
-
-The original data description:
-------------------------------------------------------------------
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
-
-The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. See 'features_info.txt' for more details. 
-
-For each record it was oringally provided:
-------------------------------------------
-
-- Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
-- Triaxial Angular velocity from the gyroscope. 
-- A 561-feature vector with time and frequency domain variables. 
-- Its activity label. 
-- An identifier of the subject who carried out the experiment.
-
-For more information about the original dataset contact: activityrecognition@smartlab.ws
-
-
 The derived dataset includes the following files:
 =========================================
 
@@ -41,15 +10,22 @@ The derived dataset includes the following files:
 
 - 'Codebook.Rmd' a decription of the values held in X_final.txt
 
+Run_analysis.R performs the analysis required for this project
+--------------------------------------------------------------
 
-Use of the original dataset is subject to this license:
-========
-License:
---------
-Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
+See the codebook for information on the original and derived dataset in more detail.
 
-[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+The dataset required for this project is created to be consistent with the instructions below with expanded descriptions provided for the specific implementation.  Comments are also provided in the "Run_analysis.R" file itself for each step.
 
-This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
-
-Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
+* You should create one R script called run_analysis.R that does the following
+  - The resulting script is called "Run_analysis.R"
+* Merges the training and the test sets to create one data set.
+  - This was a cbind of the datasets
+* Extracts only the measurements on the mean and standard deviation for each measurement. 
+  - Out of all features, only ones with "Mean" "mean" or "std" were preserved. 
+* Uses descriptive activity names to name the activities in the data set
+  - The given activity names were added as a column
+* Appropriately labels the data set with descriptive variable names.
+  - The given variable names were added to the dataset
+* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+  - The mean of each type of activity for each subject was taken to aggregate/collapse the data
